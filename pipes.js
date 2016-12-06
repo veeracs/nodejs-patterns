@@ -9,6 +9,7 @@ const server = http.createServer((req, res) => {
   console.log(`Request made: ${req.url}`)
   res.writeHead(200, {'Content-Type': 'text/plain'});
   let myReadStream = fs.createReadStream('read.txt', 'utf8');
+  //  response object is a writable stream, so we can write to it
   myReadStream.pipe(res);
 });
 
